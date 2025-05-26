@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 import React from 'react';
-import logo from '@/media/SimliLogoV2.svg';
+import logo from '../../media/new-logo.svg';
 import cn from '@/app/utils/TailwindMergeAndClsx';
 
 interface Props {

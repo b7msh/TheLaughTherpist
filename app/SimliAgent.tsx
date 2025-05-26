@@ -4,14 +4,14 @@ import DailyIframe, { DailyCall } from "@daily-co/daily-js";
 import VideoBox from "@/app/Components/VideoBox";
 import cn from "./utils/TailwindMergeAndClsx";
 import IconSparkleLoader from "@/media/IconSparkleLoader";
+import "@/styles/global.css"; // Add this if you have a global styles file
 
 interface SimliAgentProps {
   onStart: () => void;
   onClose: () => void;
 }
 
-// Get your Simli API key from https://app.simli.com/
-const SIMLI_API_KEY = process.env.NEXT_PUBLIC_SIMLI_API_KEY;
+
 
 const SimliAgent: React.FC<SimliAgentProps> = ({ onStart, onClose }) => {
   // State management
@@ -23,37 +23,21 @@ const SimliAgent: React.FC<SimliAgentProps> = ({ onStart, onClose }) => {
   const myCallObjRef = useRef<DailyCall | null>(null);
   const [chatbotId, setChatbotId] = useState<string | null>(null);
 
-  /**
-   * Create a new Simli room and join it using Daily
-   */
   const handleJoinRoom = async () => {
     // Set loading state
     setIsLoading(true);
 
-    // 1- Create a new simli avatar at https://app.simli.com/
-    // 2- Cutomize your agent and copy the code output
-    // 3- PASTE YOUR CODE OUTPUT FROM SIMLI BELOW 👇
-    /**********************************/
-
-    const response = await fetch("https://api.simli.ai/startE2ESession", {
-      method: "POST",
+    const response = await fetch("https://api.simli.ai/session/31ba7e1d-9871-4a0a-89dc-acda31e7a2bc/gAAAAABoNCbWeIaAB7fGtfhyZj14w1yeEijbk1dNzi66PYRMp-AczbUQRetRPthULjeWkRKherMP1bzUeFk7L1tIovoVVIHgUg3jVzbDABxNLX7zw2aYjQg5xl7FSE9D4sH0XwyRHqdvdDsxOLgi0M2j3cc_kqwo1PKoa1Hilpb3V4FvYX6XWYHdl6pub8oCheUkUJF_OPTXFv-MIhK6J968ZOpu4Rxcr-GMkaceAJw9ZVaB8Z6-qsDdiFYPHu6jfjbKibtzl5fIF731oEV_6JO61cbWicgBEzMt2N4RkLzIKOgjOHyTgd6iqd2xYjwzZ1nHA3PD20BNLBCBrqbzN3MF6jcaFgwPrkvYcxrdT5kOqcQB_I4Ynoguq0Jsl-41HAe-TacYnCKyEgFcG7PSYHOhULLbtE-nAg==", {
+      method: "GET",
       headers: {
-        "Content-Type": "application/json",
+          "Content-Type": "application/json",
+          "Accept": "application/json",
       },
-      body: JSON.stringify({
-        apiKey: SIMLI_API_KEY,
-        faceId: "",
-        voiceId: "",
-        firstMessage: "",
-        systemPrompt: "",
-      }),
-    });
+  })
+  
+  const data = await response.json();
+  const roomUrl = data.roomUrl;
 
-    const data = await response.json();
-    const roomUrl = data.roomUrl;
-
-    /**********************************/
-    
     // Print the API response 
     console.log("API Response", data);
 
@@ -141,7 +125,9 @@ const SimliAgent: React.FC<SimliAgentProps> = ({ onStart, onClose }) => {
           </div>
         </div>
       )}
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center bg-green-900 min-h-screen p-4 text-white">
+        <div className="welcome-message">Welcome to The Laughrapist Experience</div>
+        <div className="laughrapist-intro">Meet Dr. Jim Carry — your personal laughrapist. He's here to crack jokes, lift moods, and turn therapy into comedy gold.</div>
         {!isAvatarVisible ? (
           <button
             onClick={handleJoinRoom}
@@ -155,7 +141,7 @@ const SimliAgent: React.FC<SimliAgentProps> = ({ onStart, onClose }) => {
               <IconSparkleLoader className="h-[20px] animate-loader" />
             ) : (
               <span className="font-abc-repro-mono font-bold w-[164px]">
-                Test Interaction
+                Let's Giggle
               </span>
             )}
           </button>
@@ -175,6 +161,7 @@ const SimliAgent: React.FC<SimliAgentProps> = ({ onStart, onClose }) => {
             </div>
           </>
         )}
+
       </div>
     </>
   );

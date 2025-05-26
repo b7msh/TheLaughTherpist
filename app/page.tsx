@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import SimliAgent from "@/app/SimliAgent";
+import SimliAgent from "./SimliAgent";
 import DottedFace from "./Components/DottedFace";
 import SimliHeaderLogo from "./Components/Logo";
 import Navbar from "./Components/Navbar";
@@ -21,7 +21,7 @@ const Demo: React.FC = () => {
   };
 
   return (
-    <div className="bg-black min-h-screen flex flex-col items-center font-abc-repro font-normal text-sm text-white p-8">
+    <div className="bg-green-900 min-h-screen flex flex-col items-center font-abc-repro font-normal text-sm text-white p-8">
       <SimliHeaderLogo />
       <Navbar />
 
@@ -36,7 +36,7 @@ const Demo: React.FC = () => {
           create-simli-agent
         </text>
       </div>
-      <div className="flex flex-col items-center gap-6 bg-effect15White p-6 pb-[40px] rounded-xl w-full">
+      <div className="flex flex-col items-center gap-6 bg-green-900 text-white p-6 pb-[40px] rounded-xl w-full">
         <div>
           {showDottedFace && <DottedFace />}
           <SimliAgent
@@ -44,29 +44,6 @@ const Demo: React.FC = () => {
             onClose={onClose}
           />
         </div>
-      </div>
-
-      <div className="max-w-[350px] font-thin flex flex-col items-center ">
-        <span className="font-bold mb-[8px] leading-5 ">
-          {" "}
-          Create Simli Agent is a starter repo for creating visual avatars with
-          Simli{" "}
-        </span>
-        <ul className="list-decimal list-inside max-w-[350px] ml-[6px] mt-2">
-          <li className="mb-1">
-            Fill in your Simli API keys in .env file.
-          </li>
-          <li className="mb-1">
-            Create your Simli avatar at app.simli.com
-          </li>
-          <li className="mb-1">
-            Copy code output from app.simli.com and paste in <code>app/SimliAgent.tsx</code>.
-          </li>
-        </ul>
-        <span className=" mt-[16px]">
-          You can now deploy this app to Vercel, or incorporate it as part of
-          your existing project.
-        </span>
       </div>
     </div>
   );

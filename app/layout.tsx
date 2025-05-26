@@ -17,8 +17,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${abcReproMono.variable} ${abcRepro.variable}`}>
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className={`${abcReproMono.variable} ${abcRepro.variable} bg-green-900`}>
+      <body className={`${inter.className} bg-green-900 text-white`}>
+        <div className="min-h-screen w-full bg-green-900">
+          {children}
+        </div>
+      </body>
     </html>
   );
 }

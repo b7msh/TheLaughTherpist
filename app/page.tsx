@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from "react";
 import SimliAgent from "./SimliAgent";
 import DottedFace from "./Components/DottedFace";
-import SimliHeaderLogo from "./Components/Logo";
 import Navbar from "./Components/Navbar";
 import Image from "next/image";
 import GitHubLogo from "@/media/github-mark-white.svg";
@@ -76,8 +75,28 @@ const Demo: React.FC = () => {
         />
       ))}
 
-      <SimliHeaderLogo />
       <Navbar />
+
+      <div className="absolute top-[32px] left-[32px]">
+        <div className="flex flex-col gap-2">
+          <button
+            onClick={() => {
+              window.open("https://x.com/TheLaughrapist/with_replies");
+            }}
+            className="button text-sm px-4 py-2"
+          >
+            <span className="mr-2">🐦</span> Twitter
+          </button>
+          <button
+            onClick={() => {
+              window.open("https://web.telegram.org/k/#@TheLaughrapistbot");
+            }}
+            className="button text-sm px-4 py-2"
+          >
+            <span className="mr-2">📱</span> Telegram
+          </button>
+        </div>
+      </div>
 
       <div className="absolute top-[32px] right-[32px]">
         <button
@@ -92,38 +111,38 @@ const Demo: React.FC = () => {
 
       <div className="w-full max-w-5xl mt-20 px-4">
         <div className="text-center mb-16">
-          <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-green-500 to-green-700 bg-clip-text text-transparent">
-            Welcome to Simli Agent
+          <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">
+            Welcome to LaughTherapist
           </h1>
           <p className="text-xl text-center mb-8 max-w-2xl mx-auto">
-            Your friendly AI assistant that understands and generates text based on your prompts.
+            Your friendly AI therapist that helps you manage stress through laughter and positivity.
           </p>
           <button onClick={onStart} className="button text-xl">
-            Start Chatting
+            Start Session
           </button>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-16">
           {showFeatures && [
             {
-              title: "Smart Responses",
-              description: "Get intelligent and context-aware responses from our AI assistant.",
-              icon: "💡",
+              title: "Laughter Therapy",
+              description: "Experience therapeutic laughter exercises to reduce stress and anxiety.",
+              icon: "😄",
             },
             {
-              title: "Natural Language",
-              description: "Interact using natural language - just like talking to a human.",
-              icon: "💬",
+              title: "Positive Thinking",
+              description: "Learn to reframe negative thoughts into positive ones.",
+              icon: "😊",
             },
             {
-              title: "Always Learning",
-              description: "Our AI continuously learns and improves with every interaction.",
-              icon: "📚",
+              title: "Stress Relief",
+              description: "Discover laughter techniques to help manage daily stress.",
+              icon: "😌",
             },
             {
-              title: "24/7 Availability",
-              description: "Available anytime, anywhere to assist you with your needs.",
-              icon: "⏰",
+              title: "Mental Wellness",
+              description: "Improve your mental health through laughter and positivity.",
+              icon: "✨",
             },
           ].map((feature, index) => (
             <div key={index} className="feature-card">
@@ -134,33 +153,33 @@ const Demo: React.FC = () => {
           ))}
         </div>
 
-        <div className="bg-gradient-to-r from-green-600 to-green-800 rounded-2xl p-10 mb-16">
+        <div className="bg-gradient-to-r from-yellow-500 to-orange-600 rounded-2xl p-10 mb-16">
           <h2 className="text-3xl font-bold mb-6">How it Works</h2>
           <div className="space-y-6">
             <div className="flex items-center space-x-4">
               <div className="text-4xl">1</div>
               <div>
-                <h3 className="font-semibold">Type Your Question</h3>
-                <p>Simply type your question or statement in the chat box below.</p>
+                <h3 className="font-semibold">Share Your Feelings</h3>
+                <p>Talk about what's been bothering you or making you stressed.</p>
               </div>
             </div>
             <div className="flex items-center space-x-4">
               <div className="text-4xl">2</div>
               <div>
-                <h3 className="font-semibold">Get Response</h3>
-                <p>Our AI will generate a context-aware response instantly.</p>
+                <h3 className="font-semibold">Find the Funny Side</h3>
+                <p>LaughTherapist will help you find humor in the situation.</p>
               </div>
             </div>
             <div className="flex items-center space-x-4">
               <div className="text-4xl">3</div>
               <div>
-                <h3 className="font-semibold">Continue Chat</h3>
-                <p>Continue the conversation or ask new questions anytime!</p>
+                <h3 className="font-semibold">Feel Better</h3>
+                <p>Experience stress relief through laughter and positive thinking.</p>
               </div>
             </div>
           </div>
           <button onClick={onStart} className="button mt-6">
-            Try it Now
+            Start Laughing
           </button>
         </div>
 

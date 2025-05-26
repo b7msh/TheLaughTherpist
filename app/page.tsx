@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import SimliAgent from "./SimliAgent";
 import DottedFace from "./Components/DottedFace";
-
+import SimliHeaderLogo from "./Components/Logo";
 import Navbar from "./Components/Navbar";
 import Image from "next/image";
 import GitHubLogo from "@/media/github-mark-white.svg";
@@ -76,7 +76,7 @@ const Demo: React.FC = () => {
         />
       ))}
 
-
+      <SimliHeaderLogo />
       <Navbar />
 
       <div className="absolute top-[32px] right-[32px]">

@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
-import cn from "@/app/utils/TailwindMergeAndClsx";
-import sparkle from "@/media/sparkle.svg";
+import cn from "../app/utils/TailwindMergeAndClsx";
+import sparkle from "./sparkle.svg";
 
 interface Props {
   className?: string;

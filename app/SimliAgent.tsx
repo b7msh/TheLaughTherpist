@@ -1,19 +1,17 @@
 import React, { useRef, useState } from "react";
 import { DailyProvider } from "@daily-co/daily-react";
 import DailyIframe, { DailyCall } from "@daily-co/daily-js";
-import VideoBox from "@/app/Components/VideoBox";
+import VideoBox from "./Components/VideoBox";
 import cn from "./utils/TailwindMergeAndClsx";
-import IconSparkleLoader from "@/media/IconSparkleLoader";
+import IconSparkleLoader from "../media/IconSparkleLoader";
 import "@/styles/global.css"; // Add this if you have a global styles file
 
 interface SimliAgentProps {
-  onStart: () => void;
-  onClose: () => void;
+  onStart?: () => void;
+  onClose?: () => void;
 }
 
-
-
-const SimliAgent: React.FC<SimliAgentProps> = ({ onStart, onClose }) => {
+const SimliAgent: React.FC<SimliAgentProps> = ({ onStart = () => {}, onClose = () => {} }) => {
   // State management
   const [isLoading, setIsLoading] = useState(false);
   const [isAvatarVisible, setIsAvatarVisible] = useState(false);
